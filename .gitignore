@@ -1,0 +1,24 @@
+# --- Rust ---
+/target
+/deps/**/target
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Environment/Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Backup/Temporary ---
+*.bak
+*.tmp
+*.log
