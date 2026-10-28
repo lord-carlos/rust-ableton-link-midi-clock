@@ -134,7 +134,7 @@ struct ClockAppWithTray {
 }
 
 impl eframe::App for ClockAppWithTray {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+    fn logic(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         // Handle Tray Events
         match tray_icon::menu::MenuEvent::receiver().try_recv() {
             Ok(event) => {
@@ -209,9 +209,11 @@ impl eframe::App for ClockAppWithTray {
                 println!("Close requested: proceeding with close (should_exit)");
             }
         }
+    }
 
+    fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
         // Delegate to main app
-        self.app.update(ctx, frame);
+        self.app.draw(ui);
     }
 }
 

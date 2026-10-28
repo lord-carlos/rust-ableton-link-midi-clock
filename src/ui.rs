@@ -28,9 +28,9 @@ impl ClockApp {
     }
 }
 
-impl eframe::App for ClockApp {
-    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| {
+impl ClockApp {
+    pub fn draw(&mut self, ui: &mut egui::Ui) {
+        egui::CentralPanel::default().show(ui, |ui| {
             ui.heading("Ableton Link MIDI Clock");
             ui.add_space(10.0);
 
@@ -89,6 +89,6 @@ impl eframe::App for ClockApp {
         });
 
         // Continuous update for BPM/Phase display
-        ctx.request_repaint();
+        ui.request_repaint();
     }
 }
