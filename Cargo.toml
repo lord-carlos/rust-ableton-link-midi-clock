@@ -20,3 +20,8 @@ winit = "0.30" # Ensure version matches eframe's winit dependency
 
 [patch.crates-io]
 ableton-link-rs = { path = "deps/ableton-link-rs" }
+# Replacement for the local-ip-address crate used by ableton-link-rs:
+# skips loopback, 169.254.x.x (APIPA on disconnected virtual adapters), and
+# any address that fails a live UDP bind test, so "pick the first non-loopback
+# IPv4 and bind" logic in the crate no longer panics (WSAEADDRNOTAVAIL).
+local-ip-address = { path = "deps/local-ip-address-shim" }

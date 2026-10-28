@@ -1,0 +1,9 @@
+[package]
+name = "local-ip-address"
+version = "0.5.9"
+edition = "2021"
+description = "Shim replacement for the local-ip-address crate: enumerates network interfaces but only returns addresses that can actually be bound, so consumers that pick the first address do not crash on disconnected/APIPA virtual adapters."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+if-addrs = "0.15"
