@@ -19,6 +19,7 @@ pub struct LinkManager {
 }
 
 enum LinkCommand {
+    #[allow(dead_code)] // Part of the public set_tempo() command API
     SetTempo(f64),
     Stop,
 }
@@ -95,6 +96,7 @@ impl LinkManager {
     }
 
     /// Request the Link thread to set the global tempo (BPM)
+    #[allow(dead_code)] // Fully implemented API; tempo control in the UI is pending
     pub fn set_tempo(&self, bpm: f64) {
         let _ = self.command_tx.send(LinkCommand::SetTempo(bpm));
     }
