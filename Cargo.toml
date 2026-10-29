@@ -18,6 +18,11 @@ once_cell = "1.21"
 ctrlc = "3.5"
 winit = "0.30" # Ensure version matches eframe's winit dependency
 
+[profile.release]
+strip = "symbols"
+lto = "fat"
+codegen-units = 1
+
 [patch.crates-io]
 ableton-link-rs = { path = "deps/ableton-link-rs" }
 # Replacement for the local-ip-address crate used by ableton-link-rs:
